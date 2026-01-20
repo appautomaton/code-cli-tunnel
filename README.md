@@ -1,7 +1,25 @@
 # code-cli-tunnel
 Prepare your remote Compute Instance with code-cli tunneling capability 
 
-[TBD]
+## Install micromamba
+
+Recommended install method (official docs): https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
+
+Run this in your remote instance (bash):
+
+```bash
+"${SHELL}" <(curl -L https://micro.mamba.pm/install.sh)
+# accept defaults (bin: ~/.local/bin, init shell: yes, root prefix: ~/micromamba, conda-forge: yes)
+source ~/.bashrc
+micromamba --version
+```
+
+If you skipped shell init (or need to re-run it):
+
+```bash
+~/.local/bin/micromamba shell init --shell bash --root-prefix ~/micromamba
+source ~/.bashrc
+```
 
 ## Web Search in Codex
 
