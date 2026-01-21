@@ -41,7 +41,7 @@ BASH_ENV="$(pwd)/noninteractive-bash-env.sh" bash -c 'micromamba --version'
 ### Downgrade base to Python 3.12 and register a Jupyter kernel
 
 ```bash
-micromamba install -n base -c conda-forge "python=3.12" ipykernel -y
+micromamba install -n base -c conda-forge "python=3.12" ipykernel anywidget notebook plotly -y
 micromamba run -n base python --version
 micromamba run -n base python -m ipykernel install --user --name micromamba-base --display-name "Python (micromamba base)"
 jupyter kernelspec list
