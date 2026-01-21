@@ -25,17 +25,17 @@ source ~/.bashrc
 
 Non-interactive `bash` does **not** source `~/.bashrc`, so `~/.local/bin` may be missing from `PATH`.
 
-Use `BASH_ENV` to source a small env patch:
+Run the env patch once to create a persistent symlink in `/usr/local/bin`:
 
 ```bash
-BASH_ENV="$(pwd)/noninteractive-bash-env.sh" bash -c 'command -v micromamba && micromamba --version'
+./noninteractive-bash-env.sh
+bash -c 'command -v micromamba && micromamba --version'
 ```
 
-If you control the command being executed, you can also wrap it:
+If you cannot create symlinks in `/usr/local/bin`, you can still use:
 
 ```bash
-./with-micromamba micromamba --version
-./with-micromamba micromamba run -n base python --version
+BASH_ENV="$(pwd)/noninteractive-bash-env.sh" bash -c 'micromamba --version'
 ```
 
 ### Downgrade base to Python 3.12 and register a Jupyter kernel
